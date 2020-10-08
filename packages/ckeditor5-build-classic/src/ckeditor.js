@@ -11,6 +11,7 @@ import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapte
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
+import Font from '@ckeditor/ckeditor5-font/src/font';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
 import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
@@ -29,6 +30,7 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
+import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -38,6 +40,7 @@ ClassicEditor.builtinPlugins = [
 	UploadAdapter,
 	Autoformat,
 	Bold,
+	Font,
 	Italic,
 	BlockQuote,
 	CKFinder,
@@ -56,7 +59,8 @@ ClassicEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
-	TextTransformation
+	TextTransformation,
+	Base64UploadAdapter
 ];
 
 // Editor configuration.
@@ -65,6 +69,8 @@ ClassicEditor.defaultConfig = {
 		items: [
 			'heading',
 			'|',
+			'fontFamily',
+			'fontSize',
 			'bold',
 			'italic',
 			'link',
@@ -79,8 +85,21 @@ ClassicEditor.defaultConfig = {
 			'insertTable',
 			'mediaEmbed',
 			'undo',
-			'redo'
+			'redo',
+			'imageInsert'
 		]
+	},
+	fontSize: {
+		options: [
+
+		],
+		supportAllValues: true
+	},
+	fontFamily: {
+		options: [
+			
+		],
+		supportAllValues: true
 	},
 	image: {
 		toolbar: [
